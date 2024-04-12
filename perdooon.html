@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Me perdonas?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    #btn-yes {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: all 0.5s ease;
+    }
+    #btn-no {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<h1>¿Me perdonas? 😢</h1>
+<div id="buttons">
+    <button id="btn-yes" onclick="gracias()">Sí</button>
+    <button id="btn-no" onclick="aumentar()">No</button>
+</div>
+
+<script>
+    let yesButton = document.getElementById("btn-yes");
+    let noButton = document.getElementById("btn-no");
+    let increaseAmount = 20; // Cantidad de aumento en píxeles
+
+    function gracias() {
+        yesButton.style.width = "100%";
+        yesButton.style.height = "100vh";
+        yesButton.innerText = "¡Graciaaaaaaas! Te adoro";
+        yesButton.style.fontSize = "36px";
+        yesButton.style.backgroundColor = "blue";
+        yesButton.style.color = "white";
+        yesButton.style.borderRadius = "0";
+        yesButton.style.cursor = "default";
+        yesButton.style.transition = "none";
+        noButton.style.display = "none";
+    }
+
+    function aumentar() {
+        // Aumentar el ancho y la altura del botón Sí
+        let currentWidth = yesButton.offsetWidth + increaseAmount;
+        let currentHeight = yesButton.offsetHeight + increaseAmount;
+
+        yesButton.style.width = currentWidth + "px";
+        yesButton.style.height = currentHeight + "px";
+
+        // Comprobar si el botón Sí ocupa toda la pantalla
+        if (currentWidth >= window.innerWidth && currentHeight >= window.innerHeight) {
+            gracias(); // Mostrar el mensaje de agradecimiento
+        }
+    }
+</script>
+</body>
+</html>
